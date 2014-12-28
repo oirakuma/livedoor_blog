@@ -1,6 +1,8 @@
 # LivedoorBlog
 
-TODO: Write a gem description
+The LivedoorBlog library is used for automating interactions with a livedoor blog.
+
+It can submit entry and upload images.
 
 ## Installation
 
@@ -20,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'livedoor_blog'
+
+blog = LivedoorBlog.new
+blog.login(ENV["livedoor_id"], ENV["password"])
+url = blog.upload_image("images/test.jpg")
+blog.submit_entry("Test", "Test image: <img src='#{url}'>")
+```
 
 ## Contributing
 
@@ -29,3 +38,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
